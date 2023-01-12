@@ -1,0 +1,12 @@
+[user]
+	name = Melina Loscalzo
+	email = 122541955+MelinaLoscalzo@users.noreply.github.com
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	sshCommand = "ssh -i ~/Downloads/melkey"
+[remote "origin"]
+	url = git@github.com:MelinaLoscalzo/tetris.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
