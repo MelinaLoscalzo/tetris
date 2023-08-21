@@ -1,0 +1,32 @@
+name: Comment on Pull Request
+
+on:
+  pull_request:
+    types:
+      - opened
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Add comment
+        uses: actions/github-script@v5
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const comment = `
+            ¡Hola! Gracias por enviar tu pull request. Por favor, asegúrate de seguir nuestras pautas de contribución y proporciona una descripción detallada de los cambios realizados.
+
+            ¡Esperamos con ansias revisar tus cambios!
+            `;
+
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
